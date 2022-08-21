@@ -19,36 +19,30 @@ class ListViewDeneme extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10.0,top: 15.0),
-                child: Container(
-                  child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: Image.asset("images/${nftImages[index]}"),),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Text(nftCategories[index], style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),),
-                          ),
-                        ],
-                      )
-                  ),
-                  width: 150,
+                child: SizedBox(
+                  width: 160,
                   height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow:const [
-                      BoxShadow(
+                  child: Card(
+                    color: Color(0xFFf8f8fa),
+                    shadowColor: Colors.black,
+                    elevation: 3.0,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
                         color: Colors.black,
-                        offset: Offset(0,1),
-                        blurRadius: 1.0,
-                      )
-                    ]
+                        width: 0.1
+                      ),
+                      borderRadius: BorderRadius.circular(15.0)
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("images/${nftImages[index]}",width: 25,),
+                        SizedBox(width: 5,),
+                        Text(nftCategories[index],style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                      ],
+                    ),
                   ),
-                ),
+                )
               )
             ],
           ),

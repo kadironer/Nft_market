@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nft_market/nftListView.dart';
+import 'package:nft_market/widget/bannerContainer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -25,56 +27,53 @@ class _HomePageState extends State<HomePage> {
             Text("NFT Market", style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold, fontSize: 30),),
             Row(
               children: [
-                Container(
-                  child: Icon(
-                    CupertinoIcons.search,
-                    color: Colors.black,
-                    size: 30.0,
-                  ),
+                SizedBox(
                   width: 50,
                   height: 50,
-                  decoration: BoxDecoration(
+                  child: Card(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(15.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black,
-                        blurRadius: 6.0,
-                        offset: Offset(0,2),
-                      )
-                    ]
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                  child: Container(
+                    shadowColor: Colors.black,
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
                     child: Icon(
-                      Icons.notifications_outlined,
+                      CupertinoIcons.search,
                       color: Colors.black,
                       size: 30.0,
                     ),
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 6.0,
-                            offset: Offset(0,2),
-                          )
-                        ]
+                  ),
+                ),
+
+                SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: Card(
+                    color: Color(0xFFf8f8fa),
+                    shadowColor: Colors.black,
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Icon(
+                      CupertinoIcons.bell,
+                      color: Colors.black,
+                      size: 30.0,
                     ),
                   ),
-                )
+                ),
               ],
             )
           ],
         ),
       ),
-      body: ListViewDeneme(),
+      body: Stack(
+        children: [
+          ListViewDeneme(),
+          BannerContainer(),
+        ],
+      ),
+
     );
   }
 }
