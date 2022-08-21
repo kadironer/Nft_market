@@ -5,6 +5,7 @@ class ListViewDeneme extends StatelessWidget {
 
 
   var nftCategories=["All NFT's","Solana NFT's","Art","Collectibes","Domain Names","Music","Photography","Sports","Trading Cards","Utility","Virtual Worlds"];
+  var nftImages=["travel-front-premium.png","bag-front-premium.png","color-palatte-front-premium.png","bookmark-fav-front-premium.png","fire-front-premium.png","headphone-front-premium.png","camera-front-premium.png","sphere-front-premium.png","card-front-premium.png","bulb-front-premium.png","crow-front-premium.png"];
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +21,26 @@ class ListViewDeneme extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10.0,top: 15.0),
                 child: Container(
                   child: Center(
-                      child: Text(nftCategories[index], style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: Image.asset("images/${nftImages[index]}"),),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(nftCategories[index], style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),),
+                          ),
+                        ],
+                      )
                   ),
-                  width: 120,
-                  height: 30,
+                  width: 150,
+                  height: 50,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10.0),
-                    boxShadow:[
+                    boxShadow:const [
                       BoxShadow(
                         color: Colors.black,
                         offset: Offset(0,1),
