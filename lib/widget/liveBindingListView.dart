@@ -1,28 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LiveBidingList extends StatefulWidget {
-  const LiveBidingList({Key? key}) : super(key: key);
+class LiveBindingListView extends StatefulWidget {
+  const LiveBindingListView({Key? key}) : super(key: key);
 
   @override
-  State<LiveBidingList> createState() => _LiveBidingListState();
+  State<LiveBindingListView> createState() => _LiveBindingListViewState();
 }
 
-class _LiveBidingListState extends State<LiveBidingList> {
+class _LiveBindingListViewState extends State<LiveBindingListView> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10.0, top: 300.0),
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemCount: 4,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context,index){
-          return Row(
+    return ListView.builder(
+      physics: const BouncingScrollPhysics(),
+      itemCount: 8,
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context,index){
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 20.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 240,
-                height: 240,
+                width: 360,
+                height: 340,
                 child: Card(
                   semanticContainer: true,
                   clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -36,7 +37,7 @@ class _LiveBidingListState extends State<LiveBidingList> {
                   ),
                   child: Stack(
                     children: [
-                      Image.asset("images/nft-composition-with-popular-artworks.jpg", fit: BoxFit.cover, height: 120, width: 240,),
+                      Image.asset("images/nft-composition-with-popular-artworks.jpg", fit: BoxFit.cover, height: 170, width: 360,),
                       const Align(
                         alignment: Alignment.centerRight,
                         child: SizedBox(
@@ -74,16 +75,16 @@ class _LiveBidingListState extends State<LiveBidingList> {
                         ),
                       ),
                       Align(
-                        alignment: Alignment.bottomCenter,
+                        alignment: Alignment.center,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Padding(
-                              padding: EdgeInsets.only(left: 15.0,bottom: 45.0),
+                              padding: EdgeInsets.only(left: 15.0,top: 150.0),
                               child: Text("NFT Table", style:  TextStyle(fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.bold),),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 15.0,bottom: 45.0),
+                              padding: const EdgeInsets.only(right: 15.0,top: 150.0),
                               child: Row(
                                 children: const [
                                   Icon(CupertinoIcons.bitcoin, color: Color(0xFFFFD700),),
@@ -99,11 +100,10 @@ class _LiveBidingListState extends State<LiveBidingList> {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10.0,bottom: 5.0),
                           child: Row(
-
                             children: [
                               SizedBox(
-                                width:125,
-                                height: 40,
+                                width:215,
+                                height: 60,
                                 child: Card(
                                   elevation: 1.0,
                                   color: const Color(0xFFefeef6),
@@ -119,8 +119,8 @@ class _LiveBidingListState extends State<LiveBidingList> {
 
 
                               SizedBox(
-                                width:90,
-                                height: 40,
+                                width:120,
+                                height: 60,
                                 child: Card(
                                   elevation: 1.0,
                                   color: const Color(0xFF4983ff),
@@ -142,9 +142,9 @@ class _LiveBidingListState extends State<LiveBidingList> {
                 ),
               ),
             ],
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
